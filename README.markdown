@@ -4,8 +4,8 @@ Its problem set in many languages developed as a website for practicing & discus
 
 Status:
 
-[x] Hamming distance
-[x] Giga Second
-[x] RNA Transcription
-[x] Difference of Squares
-[x] Raindrops
+- [x] Hamming distance
+- [x] Giga Second
+- [x] RNA Transcription
+- [x] Difference of Squares
+- [x] Raindrops
