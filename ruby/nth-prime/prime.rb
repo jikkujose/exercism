@@ -2,21 +2,18 @@ class Prime
   @primes = [2]
 
   def self.nth(number)
-    i = @primes.last
+    raise ArgumentError if number == 0
+    current_number = @primes.last
 
     until @primes[number - 1]
-      @primes << i if self.prime? i
-      i += 1
+      current_number += 1
+      @primes << current_number if self.prime?(current_number)
     end
 
-    @primes.last
+    @primes[number - 1]
   end
 
   def self.prime?(number)
-    if @primes.last < number
-      @primes.include? number
-    else
-      (2..(Math.sqrt(number).round)).any? { |x| number % x == 0 }
-    end
+    !(2..(Math.sqrt(number).round)).any? { |x| number % x == 0 }
   end
 end

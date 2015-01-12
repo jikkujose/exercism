@@ -25,4 +25,8 @@ class TestPrimes < Minitest::Test
       Prime.nth(0)
     end
   end
+
+  def test_prime_method
+    assert_equal true, Prime.prime?(13)
+  end
 end
