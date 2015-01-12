@@ -9,3 +9,12 @@ Status:
 - [x] RNA Transcription
 - [x] Difference of Squares
 - [x] Raindrops
+- [x] Roman Numerals
+- [x] Robot Name
+- [x] Nth Prime
+- [x] Leap Year
+- [x] Grains
+- [x] Word Count
+- [x] Bob
+- [x] Food Chain
+- [ ] Sieve
