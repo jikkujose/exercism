@@ -39,9 +39,7 @@ class FoodChainSong
   end
 
   def sing
-    (1..8).map do |number|
-      verse(number) + "\n"
-    end.join
+    verses(1, 8)
   end
 
   private
