@@ -17,4 +17,7 @@ Status:
 - [x] Word Count
 - [x] Bob
 - [x] Food Chain
-- [ ] Sieve
+- [x] Sieve
+- [x] Binary
+- [x] Accumulate
+- [ ] Sum of multiples
