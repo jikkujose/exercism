@@ -24,12 +24,11 @@ class FoodChainSong
     8 => ['horse']
   }
 
-
   def verse(number)
     first_line(number) +
-    second_line(number) +
-    middle_lines(number) +
-    last_line(number)
+      second_line(number) +
+      middle_lines(number) +
+      last_line(number)
   end
 
   def verses(first, last)
