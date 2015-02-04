@@ -1,11 +1,27 @@
+module Remarks
+  def silent?
+    empty?
+  end
+
+  def question?
+    end_with? '?'
+  end
+
+  def shouting?
+    self != downcase && self == upcase
+  end
+end
+
 class Bob
-  def hey(message)
-    case message.strip
-    when /^\s*$/
+  def hey(text)
+    remark = text.strip.extend Remarks
+
+    case
+    when remark.silent?
       'Fine. Be that way!'
-    when lambda { |m| letters = m.gsub(/[^a-zA-Z]/, ''); !letters.empty? && (letters == letters.upcase) }
+    when remark.shouting?
       'Whoa, chill out!'
-    when lambda { |m| m[-1] == '?' }
+    when remark.question?
       'Sure.'
     else
       'Whatever.'
