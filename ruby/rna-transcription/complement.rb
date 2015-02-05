@@ -1,11 +1,12 @@
 class Complement
-  MAPPING = { dna: "GCTA", rna: "CGAU" }
+  DNA = "GCTA"
+  RNA = "CGAU"
 
   def self.of_dna(strand)
-    strand.tr(MAPPING[:dna], MAPPING[:rna])
+    strand.tr DNA, RNA
   end
 
   def self.of_rna(strand)
-    strand.tr(MAPPING[:rna], MAPPING[:dna])
+    strand.tr RNA, DNA
   end
 end
