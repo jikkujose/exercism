@@ -8,47 +8,51 @@ class BeerSong
   end
 
   def sing
-    verses(99, 0)
+    verses 99, 0
   end
 
   private
 
   def first_line(number)
-    "#{bottle(number).capitalize} of beer on the wall, #{bottle(number)} of beer.\n"
-  end
-
-  def bottle(number)
-    count(number) + ' ' + (number == 1 ? 'bottle' : 'bottles')
-  end
-
-  def count(number)
-    case number
-    when 0
-      'no more'
-    when -1
-      '99'
-    else
-      number.to_s
-    end
-  end
-
-  def preposition(number)
-    number == 1 ? 'it' : 'one'
+    "#{wall_of_beer(number).capitalize}, #{bottle(number)} of beer.\n"
   end
 
   def last_line(number)
     last_line_left_half(number) + last_line_right_half(number)
   end
 
+  def bottle(number)
+    count(number) + " " + (number == 1 ? "bottle" : "bottles")
+  end
+
+  def count(number)
+    case number
+    when 0
+      "no more"
+    when -1
+      "99"
+    else
+      number.to_s
+    end
+  end
+
+  def preposition(number)
+    number == 1 ? "it" : "one"
+  end
+
   def last_line_left_half(number)
     if number == 0
-      'Go to the store and buy some more, '
+      "Go to the store and buy some more, "
     else
       "Take #{preposition(number)} down and pass it around, "
     end
   end
 
   def last_line_right_half(number)
-    "#{bottle(number - 1)} of beer on the wall.\n"
+    wall_of_beer(number-1) + ".\n"
+  end
+
+  def wall_of_beer(number)
+    "#{bottle(number)} of beer on the wall"
   end
 end
