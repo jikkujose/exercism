@@ -8,15 +8,14 @@ class Clock
   def initialize(hours, minutes)
     @hours = hours
     @minutes = minutes
+    normalize
   end
 
   %w[+ -].each do |symbol|
     operator = symbol.to_sym
 
     define_method operator do |minutes|
-      @minutes = @minutes.send(operator, minutes)
-      normalize
-      to_s
+      self.class.new(@hours, @minutes.send(operator, minutes)).to_s
     end
   end
 
