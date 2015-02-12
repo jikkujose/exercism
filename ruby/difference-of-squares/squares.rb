@@ -12,6 +12,6 @@ class Squares
   end
 
   def sum_of_squares
-    @number.times.map { |i| i**2 }.reduce(:+)
+    @number.times.inject(0) { |sum, i| sum + i**2 }
   end
 end
