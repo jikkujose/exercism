@@ -1,10 +1,10 @@
 class Squares
   def initialize(number)
-    @number = number + 1
+    @number = number
   end
 
   def square_of_sums
-    @number.times.reduce(:+)**2
+    numbers.reduce(:+)**2
   end
 
   def difference
@@ -12,6 +12,12 @@ class Squares
   end
 
   def sum_of_squares
-    @number.times.inject(0) { |sum, i| sum + i**2 }
+    numbers.reduce(0) { |sum, i| sum + i**2 }
+  end
+
+  private
+
+  def numbers
+    (1..@number)
   end
 end
