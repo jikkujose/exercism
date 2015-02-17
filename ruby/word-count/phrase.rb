@@ -1,11 +1,20 @@
 class Phrase
+  EXCEPT_ALPHABETS_AND_SINGLE_QUOTES = /[^\w']+/
+
   def initialize(phrase)
     @phrase = phrase.downcase
+
+    @histogram = Hash.new(0)
+    words.each { |word| @histogram[word] += 1 }
   end
 
   def word_count
-    @phrase.split(/[^\w']+/).each_with_object(Hash.new(0)) do |word, count|
-      count[word] += 1
-    end
+    @histogram
+  end
+
+  private
+
+  def words
+    @phrase.split(EXCEPT_ALPHABETS_AND_SINGLE_QUOTES)
   end
 end
