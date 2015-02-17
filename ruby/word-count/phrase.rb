@@ -1,15 +1,13 @@
 class Phrase
   EXCEPT_ALPHABETS_AND_SINGLE_QUOTES = /[^\w']+/
 
+  attr_reader :word_count
+
   def initialize(phrase)
     @phrase = phrase.downcase
 
-    @histogram = Hash.new(0)
-    words.each { |word| @histogram[word] += 1 }
-  end
-
-  def word_count
-    @histogram
+    @word_count = Hash.new(0)
+    words.each { |word| @word_count[word] += 1 }
   end
 
   private
