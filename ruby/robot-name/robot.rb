@@ -1,8 +1,11 @@
 class Robot
+  ALPHABETS = ('A'..'Z').to_a + ('a'..'z').to_a
+
   attr_reader :name
+
   @names = {}
 
-  def self.name_collision?(name)
+  def self.collision?(name)
     if @names[name]
       true
     else
@@ -20,10 +23,18 @@ class Robot
   end
 
   def generate_name
-    alphabets = 2.times.map { (('a'..'z').to_a + ('A'..'Z').to_a)[rand(0...52)] }.join
-    numbers = rand(0...1000).to_s.rjust(3, '0')
-    name = alphabets + numbers
+    new_name = alphabets + numbers
 
-    self.class.name_collision?(name) ? generate_name : name
+    self.class.collision?(new_name) ? generate_name : new_name
+  end
+
+  private
+
+  def alphabets
+    ALPHABETS.shuffle.first(2).join
+  end
+
+  def numbers
+    rand(0...1000).to_s.rjust(3, '0')
   end
 end
