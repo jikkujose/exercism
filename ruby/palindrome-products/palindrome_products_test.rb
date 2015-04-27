@@ -1,17 +1,18 @@
 require 'minitest/autorun'
 require_relative 'palindromes'
+require 'minitest/reporters'
+Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new({detailed_skip: false})]
 
-class PalindromesTest < MiniTest::Unit::TestCase
+class PalindromesTest < Minitest::Test
   def test_largest_palindrome_from_single_digit_factors
     palindromes = Palindromes.new(max_factor: 9)
     palindromes.generate
     largest = palindromes.largest
     assert_equal 9, largest.value
-    assert_includes [[[3, 3], [1, 9]], [[1, 9], [3, 3]]], largest.factors
+    assert_equal [[1, 9], [3, 3]].sort, largest.factors.sort
   end
 
   def test_largest_palindrome_from_double_digit_factors
-    skip
     palindromes = Palindromes.new(max_factor: 99, min_factor: 10)
     palindromes.generate
     largest = palindromes.largest
@@ -20,7 +21,6 @@ class PalindromesTest < MiniTest::Unit::TestCase
   end
 
   def test_smallest_palindrome_from_double_digit_factors
-    skip
     palindromes = Palindromes.new(max_factor: 99, min_factor: 10)
     palindromes.generate
     smallest = palindromes.smallest
@@ -29,7 +29,6 @@ class PalindromesTest < MiniTest::Unit::TestCase
   end
 
   def test_largest_palindrome_from_triple_digit_factors
-    skip
     palindromes = Palindromes.new(max_factor: 999, min_factor: 100)
     palindromes.generate
     largest = palindromes.largest
@@ -38,7 +37,6 @@ class PalindromesTest < MiniTest::Unit::TestCase
   end
 
   def test_smallest_palindrome_from_triple_digit_factors
-    skip
     palindromes = Palindromes.new(max_factor: 999, min_factor: 100)
     palindromes.generate
     smallest = palindromes.smallest
