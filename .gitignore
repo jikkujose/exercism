@@ -19,3 +19,4 @@ python/
 scala/
 swift/
 .DS_Store
+*node_modules*
