@@ -1,19 +1,18 @@
 export default class Transcriptor {
-  complement(n) {
-    switch (n) {
-      case "C":
-        return "G"
-      case "G":
-        return "C"
-      case "A":
-        return "U"
-      case "T":
-        return "A"
-      case "":
-        return ""
-      default:
-        throw "Invalid input DNA."
+  complement(nucleotide) {
+    const _complement = {
+      C: "G",
+      G: "C",
+      A: "U",
+      T: "A",
+      "": "",
+    }[nucleotide]
+
+    if (!_complement) {
+      throw "Invalid input DNA."
     }
+
+    return _complement
   }
 
   toRna(string) {
